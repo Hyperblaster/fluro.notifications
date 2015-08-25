@@ -9,7 +9,8 @@ angular.module('fluro.notifications')
 
     var controller = {
         list: [],
-        defaultDelay:2000,
+        expired:[],
+        defaultDelay:4000,
     }
 
     /////////////////////////////////////////////////////
@@ -46,6 +47,8 @@ angular.module('fluro.notifications')
             if (i != -1) {
                 controller.list.splice(i, 1);
             }
+
+            controller.expired.push(msg);
         }
 
         controller.list.push(msg)
