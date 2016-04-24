@@ -9,7 +9,6 @@ angular.module('fluro.notifications')
 
     var controller = {
         list: [],
-        expired:[],
         defaultDelay:4000,
     }
 
@@ -42,19 +41,21 @@ angular.module('fluro.notifications')
         var msg = {};
         msg.text = text;
         msg.type = type;
-        msg.remove = function() {
+        msg.active = true;
+
+        msg.expire = function() {
             var i = controller.list.indexOf(msg);
             if (i != -1) {
                 controller.list.splice(i, 1);
             }
 
-            controller.expired.push(msg);
+            msg.active = false;
         }
 
         controller.list.push(msg)
 
         //Remove automatically after 5 seconds
-        $timeout(msg.remove, delay);
+        $timeout(msg.expire, delay);
     }
 
     /////////////////////////////////////////////////////
