@@ -44,10 +44,10 @@ angular.module('fluro.notifications')
         msg.active = true;
 
         msg.expire = function() {
-            var i = controller.list.indexOf(msg);
-            if (i != -1) {
-                controller.list.splice(i, 1);
-            }
+            // var i = controller.list.indexOf(msg);
+            // if (i != -1) {
+            //     controller.list.splice(i, 1);
+            // }
 
             msg.active = false;
         }
