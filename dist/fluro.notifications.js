@@ -5,7 +5,7 @@ angular.module('fluro.notifications')
 
 /////////////////////////////////////////////////////
 
-.service('Notifications', function($timeout) {
+.service('Notifications', ['$timeout', function($timeout) {
 
     var controller = {
         list: [],
@@ -70,4 +70,4 @@ angular.module('fluro.notifications')
     /////////////////////////////////////////////////////
 
     return controller;
-});
+}]);
